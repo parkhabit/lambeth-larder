@@ -37,17 +37,20 @@ class Card extends React.Component {
     return (
       <div className='card-container'>
         <div className="tag-miles">
-          <p>{miles}</p>
+          {miles} miles
         </div>
+        <div className='card-heading-container'>
         <h3 className="heading">{title}</h3>
-        {open && <p className="tag-open">Open</p>}
+        {open && <span className="tag-open">Open</span>}
+        </div>
+
         <p>{description}</p>
-        {voucherRequired && <button>Voucher required</button>}
+        {voucherRequired && <button className='card-voucher'>Voucher required</button>}
         {!isCardExtended && <p>{town}</p>}
-        <button onClick={this.handleClick}>See more</button>
+        <button onClick={this.handleClick} className='card-extend-toggle'>See more</button>
 
         {isCardExtended && (
-          <React.Fragment>
+          <div className='card-extended-container'>
             <div>
               <p>{address}</p>
               <ul>
@@ -68,7 +71,7 @@ class Card extends React.Component {
                 <li>Sun: {hours.sun}</li>
               </ul>
             </div>
-          </React.Fragment>
+          </div>
         )}
       </div>
     );

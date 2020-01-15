@@ -8,12 +8,22 @@ import "./list.css";
 class List extends Component {
   constructor() {
     super();
-    this.state = { checked: false };
+    this.state = { checked: false, inputValue: '' };
     this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleInputChange = this.handleInputChange.bind(this);
   }
    
   handleChange(checked) {
     this.setState({ checked });
+  }
+
+  handleInputChange(e) {
+    this.setState({inputValue: e.target.value})
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
   }
  
   render() {
@@ -29,11 +39,11 @@ class List extends Component {
           </label>
           
         </div>
-        <form className='list-form'>
+        <form className='list-form' onSubmit={this.handleSubmit}>
           <label>Town, city, or postcode</label>
           <div>
-            <input />
-            <button type="submit">Search</button>
+            <input value={this.state.inputValue} onChange={this.handleInputChange}/>
+            <button type="submit" onClick={this.handleSubmit}>Search</button>
           </div>
         </form>
   

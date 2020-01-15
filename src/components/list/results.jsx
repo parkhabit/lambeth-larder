@@ -3,13 +3,13 @@ const results = [
       title: "meow",
       description: "some words",
       miles: 4.5,
-      open: false,
+      open: true,
       hours: {
         mon: "12:00",
         tue: "2pm",
         wed: "9am"
       },
-      voucherRequired: false,
+      voucherRequired: true,
       town: "Bermondsey",
       address: "address",
       phone: "07490388078",
@@ -26,7 +26,7 @@ const results = [
         tue: "2pm",
         wed: "9am"
       },
-      voucherRequired: false,
+      voucherRequired: true,
       town: "Bermondsey",
       address: "address",
       phone: "07490388078",
