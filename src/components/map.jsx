@@ -1,8 +1,9 @@
 import React from 'react';
+import './map.css';
 
 function Map() {
   return (
-    <div className="App">
+    <div className="map-container">
         Map here
     </div>
   );

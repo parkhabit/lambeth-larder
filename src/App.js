@@ -1,5 +1,6 @@
 import React from 'react';
-import logo from './assets/logo.svg';
+import emergencyFood from './assets/emergency-food.png';
+import adviceSupport from './assets/advice-support.png';
 import Map from './components/map';
 import List from './components/list';
 import './App.css';
@@ -8,7 +9,9 @@ function App() {
   return (
     <div className="App">
       <header className="navbar">
-        <img src={logo} alt='lambeth larder icon' />
+        <ul>
+          <img src={emergencyFood} alt='lambeth larder icon' />
+        </ul>
         <ul>
           <li>Home</li>
           <li>Emergency Food</li>
@@ -19,9 +22,14 @@ function App() {
           <li>About us</li>
         </ul>
       </header>
-      <img src={logo} alt='page title Emergeny Food' />
-      <Map />
-      <List />
+      <div className='hero'>Emergency Food</div>
+      
+      <img src={adviceSupport} alt='page title Emergeny Food' />
+      <main>
+        <Map />
+        <List />
+      </main>
+
     </div>
   );
 }
