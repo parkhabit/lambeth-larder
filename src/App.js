@@ -1,8 +1,7 @@
 import React from 'react';
 import emergencyFood from './assets/emergency-food.png';
-import adviceSupport from './assets/advice-support.png';
-import Map from './components/map';
-import List from './components/list';
+import Map from './components/map/map.jsx';
+import List from './components/list/list.jsx';
 import './App.css';
 
 function App() {
@@ -24,7 +23,6 @@ function App() {
       </header>
       <div className='hero'>Emergency Food</div>
       
-      <img src={adviceSupport} alt='page title Emergeny Food' />
       <main>
         <Map />
         <List />

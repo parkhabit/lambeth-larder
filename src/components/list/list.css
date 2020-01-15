@@ -1,0 +1,44 @@
+.list-container {
+    box-shadow: 0 1px 6px 0 rgba(32,33,36,0.28);
+    width: 58%;
+    height: 100%;
+    padding: 20px;
+}
+
+.list-heading-container {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.title {
+    font-size: 24px;
+    font-weight: bold;
+    font-family: 'Karla', sans-serif;
+}
+
+.list-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.list-form input {
+    width: 70%;
+    height: 40px;
+    box-sizing: border-box;
+    border: 1px solid #2A2A2A;
+    border-radius: 4px 0 0 4px;
+}
+
+.list-form button {
+    width: 20%;
+    height: 40px;
+    padding: 0;
+    border-radius: 0 4px 4px 0;
+    background-color: #ED6E37;
+    color: #fff;
+    border: 1px solid #ED6E37;
+    font-weight: bold;
+    font-family: Karla;
+    font-size: 14px;
+}

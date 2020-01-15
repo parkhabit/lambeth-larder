@@ -1,10 +1,4 @@
-import React from "react";
-import Card from "./card.jsx";
-import placeholder from "../assets/emergency-food.png";
-import "./list.css";
-
-function List() {
-  const results = [
+const results = [
     {
       title: "meow",
       description: "some words",
@@ -58,21 +52,4 @@ function List() {
     }
   ];
 
-  // const results = null;
-  return (
-    <div className="list-container">
-      <h3>Find a foodbank</h3>
-      <p>See advice centers</p>
-
-      <form>
-        <label>Town, city, or postcode</label>
-        <input></input>
-        <button type="submit">Search</button>
-      </form>
-      {!results && <img src={placeholder} alt="placeholder img" />}
-      {results && results.map(result => <Card data={result} />)}
-    </div>
-  );
-}
-
-export default List;
+  export default results;
