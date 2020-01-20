@@ -2,12 +2,12 @@ import React, {Component} from "react";
 import Card from "../card/card.jsx";
 import Switch from 'react-switch';
 import placeholder from "../../assets/emergency-food.png"
-import results from "./results";
+// import results from "./results";
 import "./list.css";
 
 class List extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = { checked: false, inputValue: '' };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -27,7 +27,8 @@ class List extends Component {
   }
  
   render() {
-      // const results = null;
+    const {results} = this.props;
+    console.log(results);
     return (
       <div className="list-container">
         <div className="list-heading-container">
@@ -47,9 +48,9 @@ class List extends Component {
           </div>
         </form>
   
-        {!results && <img src={placeholder} alt="placeholder img" />}
+        {!results && <img src={placeholder} alt="no results img" />}
   
-        {results && results.map(result => <Card data={result} />)}
+        {results && results.map((result, index) => <Card data={result.fields} key={index} />)}
       </div>
     );
   }
