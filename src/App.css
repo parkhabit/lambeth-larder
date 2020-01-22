@@ -30,3 +30,27 @@ main {
 .ll_logo {
   max-height: 75px;
 }
+
+.navLinksContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.navLinksContainer a {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-decoration: none;
+  color: #525252;
+}
+
+.navLinksContainer a:visited {
+  color: #a6a6a6;
+}
+
+.navLinksContainer a:hover {
+  color: #a6a6a6;
+}
+
+
+
