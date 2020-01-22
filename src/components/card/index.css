@@ -1,5 +1,6 @@
 .card-container {
-    border: 2px solid #ED6E37;
+    box-shadow: 0 1px 9px 0 rgba(237, 110, 55,0.85);
+    /* border: 2px solid rgb(237, 110, 55); */
     border-radius: 10px;
     margin-top: 30px;
     position: relative;
@@ -89,5 +90,6 @@
   
 
   .advice-centre {
-      border: 2px solid #4CC2F0;
+      /* border: 2px solid rgb(76, 194, 240); */
+      box-shadow: 0 1px 9px 0 rgba(76, 194, 240,0.85);
   }
