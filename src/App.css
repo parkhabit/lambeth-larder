@@ -1,6 +1,8 @@
 .navbar {
   display: flex;
   justify-content: space-between;
+  padding-left: 50px;
+  padding-right: 50px;
 }
 
 .navbar ul {
@@ -13,14 +15,18 @@
 }
 
 .hero {
+  background-image: url('./assets/LL_FoodFinder_Banner.png');
+  background-position: center;
+  background-size: 100%;
+  background-repeat: no-repeat;
   width: 100%;
-  background-color: #ffae25;
-  color: #fff;
-  height: 200px;
-  font-size: 100px;
-  text-align: center;
+  height: 430px;
 }
 
 main {
   display: flex;
+}
+
+.ll_logo {
+  max-height: 75px;
 }

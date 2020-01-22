@@ -1,5 +1,5 @@
 import React from "react";
-import emergencyFood from "./assets/emergency-food.png";
+import LLLogo from "./assets/LL_Logo_Black.png";
 import Map from "./components/map/map.jsx";
 import List from "./components/list/list.jsx";
 import Airtable from "airtable";
@@ -29,7 +29,7 @@ class App extends React.Component {
       <div className="App">
         <header className="navbar">
           <ul>
-            <img src={emergencyFood} alt="lambeth larder icon" />
+            <img src={LLLogo} alt="lambeth larder icon" className='ll_logo' />
           </ul>
           <ul>
             <li>Home</li>
@@ -41,7 +41,7 @@ class App extends React.Component {
             <li>About us</li>
           </ul>
         </header>
-        <div className="hero">Emergency Food</div>
+        <div className='hero' />
 
         <main>
           {this.state.records.length > 0 ? (
