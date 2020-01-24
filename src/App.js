@@ -1,6 +1,6 @@
 import React from "react";
 import LLLogo from "./assets/LL_Logo_Black.png";
-import Map from "./components/map/map.jsx";
+import MapContainer from "./components/map/map.jsx";
 import List from "./components/list/list.jsx";
 import Airtable from "airtable";
 import "./App.css";
@@ -75,7 +75,7 @@ class App extends React.Component {
         <main>
           {this.state.records.length > 0 ? (
             <>
-              <Map />
+              <MapContainer />
               <List results={records} />
             </>
           ) : (
