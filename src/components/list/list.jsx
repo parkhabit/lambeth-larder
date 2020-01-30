@@ -13,12 +13,12 @@ class List extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      checked: false,
+      seeAdviceCenters: false,
       inputValue: "",
       records: [],
       postcode: { isLoaded: null, isPostcodeValid: null }
     };
-    this.handleChange = this.handleChange.bind(this);
+    this.handleSwitchChange = this.handleSwitchChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
   }
@@ -31,8 +31,24 @@ class List extends Component {
       });
   }
 
-  handleChange(checked) {
-    this.setState({ checked });
+  handleSwitchChange(seeAdviceCenters) {
+    this.setState({ seeAdviceCenters }, () => {
+      if(seeAdviceCenters) {
+        base('Times and Venues')
+        .select({ view: "Grid view" })
+        .eachPage((records, fetchNextPage) => {
+          this.setState({records});
+          fetchNextPage();
+        })
+      } else if (!seeAdviceCenters) {
+        base('Times and Venues')
+        .select({filterByFormula: "{FoodCentre} = 'true'"})
+        .eachPage((records, fetchNextPage) => {
+          this.setState({records});
+          fetchNextPage();
+        })
+      }
+    });
   }
 
   handleInputChange(e) {
@@ -64,6 +80,7 @@ class List extends Component {
   render() {
     const {
       records,
+      seeAdviceCenters,
       postcode: { isLoaded, isPostcodeValid }
     } = this.state;
     // console.log(records);
@@ -75,8 +92,8 @@ class List extends Component {
           <label>
             <span>See advice centers</span>
             <Switch
-              onChange={this.handleChange}
-              checked={this.state.checked}
+              onChange={this.handleSwitchChange}
+              checked={seeAdviceCenters}
               uncheckedIcon={false}
               checkedIcon={false}
               onColor="#E87613"
