@@ -3,6 +3,7 @@ import LLLogo from "./assets/LL_Logo_Black.png";
 import MapContainer from "./components/map/map.jsx";
 import List from "./components/list/list.jsx";
 import Airtable from "airtable";
+import getLocation from './utils/location';
 import "./App.css";
 const base = new Airtable({ apiKey: "key1adK3zCJlksaUq" }).base(
   "appiS0nCpeGPbRrIK"
@@ -22,9 +23,28 @@ class App extends React.Component {
         this.setState({ records });
         fetchNextPage();
       });
+
+      const date = new Date();
+      const weekday = new Array(7);
+      weekday[0] = "Sunday";
+      weekday[1] = "Monday";
+      weekday[2] = "Tuesday";
+      weekday[3] = "Wednesday";
+      weekday[4] = "Thursday";
+      weekday[5] = "Friday";
+      weekday[6] = "Saturday";
+  
+      const today = weekday[date.getDay()];
+      const time = `${date.getHours()}:${date.getMinutes()}`;
+
+      this.setState({
+        time_day: {day: today, hour:time}
+      })
   }
   render() {
-    const { records } = this.state;
+    const { records, time_day} = this.state;
+ 
+    console.log(getLocation);
     return (
       <div className="App">
         <header className="navbar">
@@ -76,7 +96,7 @@ class App extends React.Component {
           {this.state.records.length > 0 ? (
             <>
               <MapContainer />
-              <List results={records} />
+              <List results={records} today={time_day} />
             </>
           ) : (
             <div>Loading...</div>

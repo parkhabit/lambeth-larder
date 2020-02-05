@@ -60,7 +60,8 @@ class Card extends React.Component {
         Email,
         Website,
         FoodCentre
-      }
+      },
+      today: { day, hour }
     } = this.props;
     const { isCardExtended, voucherModalOpen } = this.state;
     const hours = {
@@ -73,43 +74,83 @@ class Card extends React.Component {
       sun: `${Sunday_Open} - ${Sunday_Close}`
     };
 
-    if(Monday_Open === 'Closed') {
-      hours.mon = 'Closed'
+    if (Monday_Open === "Closed") {
+      hours.mon = "Closed";
     }
-    if(Tuesday_Open === 'Closed') {
-      hours.tue = 'Closed'
+    if (Tuesday_Open === "Closed") {
+      hours.tue = "Closed";
     }
-    if(Wednesday_Open === 'Closed') {
-      hours.wed = 'Closed'
+    if (Wednesday_Open === "Closed") {
+      hours.wed = "Closed";
     }
-    if(Thursday_Open === 'Closed') {
-      hours.thurs = 'Closed'
+    if (Thursday_Open === "Closed") {
+      hours.thurs = "Closed";
     }
-    if(Friday_Open === 'Closed') {
-      hours.fri = 'Closed'
+    if (Friday_Open === "Closed") {
+      hours.fri = "Closed";
     }
-    if(Saturday_Open === 'Closed') {
-      hours.sat = 'Closed';
+    if (Saturday_Open === "Closed") {
+      hours.sat = "Closed";
     }
-    if(Sunday_Open === 'Closed') {
-      hours.sun = 'Closed';
+    if (Sunday_Open === "Closed") {
+      hours.sun = "Closed";
     }
 
-    if (Requires_Voucher === 'Yes') {
-      Requires_Voucher = true
+    // find out if its open today
+    let openNow = false;
+    if (day === "Monday" && hours.mon !== "Closed") {
+      if (hour > Monday_Open && hour < Monday_Close) {
+        openNow = true;
+      }
+    }
+    if (day === "Tuesday" && hours.tue !== "Closed") {
+      if (hour > Tuesday_Open && hour < Tuesday_Close) {
+        openNow = true;
+      }
+    }
+    if (day === "Wednesday" && hours.wed !== "Closed") {
+      if (hour > Wednesday_Open && hour < Wednesday_Close) {
+        openNow = true;
+      }
+    }
+    if (day === "Thursday" && hours.thurs !== "Closed") {
+      if (hour > Thursday_Open && hour < Thursday_Close) {
+        openNow = true;
+      }
+    }
+    if (day === "Friday" && hours.fri !== "Closed") {
+      if (hour > Friday_Open && hour < Friday_Close) {
+        openNow = true;
+      }
+    }
+    if (day === "Saturday" && hours.sat !== "Closed") {
+      if (hour > Saturday_Open && hour < Saturday_Close) {
+        openNow = true;
+      }
+    }
+    if (day === "Sunday" && hours.sun !== "Closed") {
+      if (hour > Sunday_Open && hour < Sunday_Close) {
+        openNow = true;
+      }
+    }
+
+    // find out if its open this hour/minute
+
+    if (Requires_Voucher === "Yes") {
+      Requires_Voucher = true;
     } else {
-      Requires_Voucher = false
+      Requires_Voucher = false;
     }
 
-    if(FoodCentre === 'true') {
-      FoodCentre = true
+    if (FoodCentre === "true") {
+      FoodCentre = true;
     } else {
-      FoodCentre = false
+      FoodCentre = false;
     }
 
-    let adviceCentreStyle = '';
+    let adviceCentreStyle = "";
     if (!FoodCentre) {
-      adviceCentreStyle = 'advice-centre'
+      adviceCentreStyle = "advice-centre";
     }
     return (
       <div className={`card-container ${adviceCentreStyle}`}>
@@ -144,7 +185,7 @@ class Card extends React.Component {
         {/* <div className="tag-miles">{miles} miles</div> */}
         <div className="card-heading-container">
           <h3 className="heading">{Name}</h3>
-          {/* {open && <span className="tag-open">Open</span>} */}
+          {openNow && <span className="tag-open">Open</span>}
         </div>
 
         <p>{Description}</p>

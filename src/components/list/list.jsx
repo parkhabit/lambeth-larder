@@ -83,7 +83,7 @@ class List extends Component {
       seeAdviceCenters,
       postcode: { isLoaded, isPostcodeValid }
     } = this.state;
-    // console.log(records);
+    const {today} = this.props;
     return (
       <div className="list-container">
         <div className="list-heading-container">
@@ -119,7 +119,7 @@ class List extends Component {
 
         {records &&
           records.map((result, index) => (
-            <Card data={result.fields} key={index} />
+            <Card data={result.fields} key={index} today={today} />
           ))}
       </div>
     );
